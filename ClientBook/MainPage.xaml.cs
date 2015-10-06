@@ -35,7 +35,7 @@ namespace ClientBook
         private void Compra_Click(object sender, RoutedEventArgs e)
         {
            // Navigate("/DollarPage.xaml");
-            Navigate("/Compra.xaml");
+            Navigate("/ListaCompras.xaml");
         }
 
         #endregion

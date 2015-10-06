@@ -67,5 +67,17 @@ namespace ClientBook.Repositorio
         }
 
 
+        public static void DeleteObject(CompraEntidade pCompra)
+        {
+            DataBase db = GetDataBase();
+            var query = from c in db.Compra
+                        where c.id == pCompra.id
+                        select c;
+
+            db.Compra.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
+
     }
 }

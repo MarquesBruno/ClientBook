@@ -7,7 +7,7 @@ using System.Windows;
 using ClientBook.Banco;
 using ClientBook.Entidade;
 
-namespace CarteiraInternacional.Repositorio
+namespace ClientBook.Repositorio
 {
     public class ClassificRepositorio
     {
@@ -79,15 +79,32 @@ namespace CarteiraInternacional.Repositorio
 
         }
 
-        public static void Delete(string pClassific)
+        public static void Delete(int pClassific)
         {
             DataBase db = GetDataBase();
             var query = from c in db.Classificacao
-                        where c.nome == pClassific
+                        where c.id == pClassific
                         select c;
 
             db.Classificacao.DeleteOnSubmit(query.ToList()[0]);
             db.SubmitChanges();
         }
+
+
+
+        public static void DeleteObject(Classificacao pClassific)
+        {
+            DataBase db = GetDataBase();
+            var query = from c in db.Classificacao
+                        where c.id == pClassific.id
+                        select c;
+
+            db.Classificacao.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
+
+
+
     }
 }

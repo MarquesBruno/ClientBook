@@ -28,5 +28,11 @@ namespace ClientBook.Entidade
         [Column(CanBeNull = true)]
         public double preco { get; set; }
 
+        [Column(CanBeNull = true)]
+        public int qtd { get; set; }
+
+        [Column(CanBeNull = true)]
+        public string Data { get; set; }
+
     }
 }
