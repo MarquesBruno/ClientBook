@@ -97,18 +97,52 @@
     <Compile Include="CadastroClassif.xaml.cs">
       <DependentUpon>CadastroClassif.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CadastroCliente.xaml.cs">
+      <DependentUpon>CadastroCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CadastroEstabelec.xaml.cs">
       <DependentUpon>CadastroEstabelec.xaml</DependentUpon>
     </Compile>
     <Compile Include="CadastroProd.xaml.cs">
       <DependentUpon>CadastroProd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CadastroServPrest.xaml.cs">
+      <DependentUpon>CadastroServPrest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Entidade\Classificacao.cs" />
+    <Compile Include="Entidade\ClienteEntidade.cs" />
     <Compile Include="Entidade\CompraEntidade.cs" />
     <Compile Include="Entidade\Estabelecimento.cs" />
     <Compile Include="Entidade\Produto.cs" />
+    <Compile Include="Entidade\ServicoEntidade.cs" />
+    <Compile Include="Entidade\ServiçoPrest.cs" />
+    <Compile Include="Entidade\VendaEntidade.cs" />
+    <Compile Include="Informacoes.xaml.cs">
+      <DependentUpon>Informacoes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaClassificacao.xaml.cs">
+      <DependentUpon>ListaClassificacao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaCliente.xaml.cs">
+      <DependentUpon>ListaCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListaCompras.xaml.cs">
       <DependentUpon>ListaCompras.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaEstabelecimento.xaml.cs">
+      <DependentUpon>ListaEstabelecimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPrestServico.xaml.cs">
+      <DependentUpon>ListaPrestServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaProduto.xaml.cs">
+      <DependentUpon>ListaProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaServico.xaml.cs">
+      <DependentUpon>ListaServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListaVenda.xaml.cs">
+      <DependentUpon>ListaVenda.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -116,9 +150,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\ClassificRepositorio.cs" />
+    <Compile Include="Repositorio\ClienteRepositorio.cs" />
     <Compile Include="Repositorio\CompraRepositorio.cs" />
     <Compile Include="Repositorio\EstabelecRepositorio.cs" />
     <Compile Include="Repositorio\ProdutoRepositorio.cs" />
+    <Compile Include="Repositorio\ServicoPrestRepositorio.cs" />
+    <Compile Include="Repositorio\ServicoRepositorio.cs" />
+    <Compile Include="Repositorio\VendaRepositorio.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +164,12 @@
     </Compile>
     <Compile Include="Compra.xaml.cs">
       <DependentUpon>Compra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Servico.xaml.cs">
+      <DependentUpon>Servico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Venda.xaml.cs">
+      <DependentUpon>Venda.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CadastroCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CadastroEstabelec.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,7 +193,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CadastroServPrest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Informacoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaClassificacao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListaCompras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaEstabelecimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaPrestServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListaVenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +238,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Compra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Servico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Venda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +282,10 @@
     <Content Include="Icons\add.png" />
     <Content Include="Icons\delete.png" />
     <Content Include="Icons\about.png" />
+    <Content Include="Icons\edit.png" />
+    <Content Include="Icons\equip.png" />
+    <Content Include="Icons\eyeCopia.png" />
+    <Content Include="Icons\like.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
@@ -204,6 +300,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>

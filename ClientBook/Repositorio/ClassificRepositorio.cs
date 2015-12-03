@@ -79,11 +79,11 @@ namespace ClientBook.Repositorio
 
         }
 
-        public static void Delete(int pClassific)
+        public static void Delete(string pClassific)
         {
             DataBase db = GetDataBase();
             var query = from c in db.Classificacao
-                        where c.id == pClassific
+                        where c.nome == pClassific
                         select c;
 
             db.Classificacao.DeleteOnSubmit(query.ToList()[0]);
@@ -100,6 +100,19 @@ namespace ClientBook.Repositorio
                         select c;
 
             db.Classificacao.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
+        public static void Update(Classificacao pClassific)
+        {
+            DataBase db = GetDataBase();
+
+            Classificacao classf = (from c in db.Classificacao
+                            where c.id == pClassific.id
+                            select c).First();
+
+            classf.nome = pClassific.nome;
+
             db.SubmitChanges();
         }
 

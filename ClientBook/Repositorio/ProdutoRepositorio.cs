@@ -47,7 +47,7 @@ namespace ClientBook.Repositorio
 
             foreach (var item in lista)
             {
-                if ((item.NomeProduto.Equals(pProd.NomeProduto, StringComparison.OrdinalIgnoreCase)) || (item.marca.Equals(pProd.marca, StringComparison.OrdinalIgnoreCase)))
+                if ((item.NomeProduto.Equals(pProd.NomeProduto, StringComparison.OrdinalIgnoreCase)) && (item.marca.Equals(pProd.marca, StringComparison.OrdinalIgnoreCase)))
                 {
                     ponto = 1;
                 }
@@ -74,6 +74,31 @@ namespace ClientBook.Repositorio
             db.SubmitChanges();
         }
 
+        public static void DeleteObject(Produto pProd)
+        {
+            DataBase db = GetDataBase();
+            var query = from c in db.Produto
+                        where c.id == pProd.id
+                        select c;
+
+            db.Produto.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
+
+        public static void Update(Produto pProd)
+        {
+            DataBase db = GetDataBase();
+
+            Produto prod = (from c in db.Produto
+                                   where c.id == pProd.id
+                                   select c).First();
+
+            prod.NomeProduto = pProd.NomeProduto;
+            prod.marca = pProd.marca;
+
+            db.SubmitChanges();
+        }
 
 
     }

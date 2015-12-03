@@ -34,7 +34,7 @@ namespace ClientBook
 
 
             this.lpkEstabelecimento.ItemsSource = listaEstabelec;
-            this.lpkCountry.ItemsSource = lista;
+            this.lpkClassific.ItemsSource = lista;
             this.lpkProduto.ItemsSource = listaProduto;
 
 
@@ -52,7 +52,7 @@ namespace ClientBook
             List<string> estabelecimentos = Repositorio.EstabelecRepositorio.GetOne();
             List<string> produtos = Repositorio.ProdutoRepositorio.GetOne();
 
-            this.lpkCountry.ItemsSource = lista;
+            this.lpkClassific.ItemsSource = lista;
             this.lpkEstabelecimento.ItemsSource = estabelecimentos;
             this.lpkProduto.ItemsSource = produtos;
 
@@ -70,19 +70,19 @@ namespace ClientBook
             //MessageBox.Show(_Content);
 
 
-            if (lpkEstabelecimento.SelectedItem == string.Empty)
+            if (lpkEstabelecimento.SelectedItem == null)
             {
                 MessageBox.Show(" A Estabelecimento deve ser preenchido");
                 return;
             }
 
-            if (lpkProduto.SelectedItem == string.Empty)
+            if (lpkProduto.SelectedItem == null)
             {
                 MessageBox.Show(" A Produto deve ser preenchido");
                 return;
             }
 
-            if (lpkCountry.SelectedItem == string.Empty)
+            if (lpkClassific.SelectedItem == null)
             {
                 MessageBox.Show(" A Classificação deve ser preenchida");
                 return;
@@ -107,7 +107,7 @@ namespace ClientBook
             {
                 estabelecimento = (Convert.ToString(lpkEstabelecimento.SelectedItem)),
                 produto = (Convert.ToString(lpkProduto.SelectedItem)),
-                classificacao = (Convert.ToString(lpkCountry.SelectedItem)),
+                classificacao = (Convert.ToString(lpkClassific.SelectedItem)),
                 preco = (Convert.ToDouble(resultado)),       
                 Data = DateTime.Now.ToString("dd/MM/yyyy"),
                 qtd = (Convert.ToInt16(txtQtd.Text))
@@ -142,7 +142,7 @@ namespace ClientBook
             compras = (sender as ListBox).SelectedItem as CompraEntidade;
         }
 
-        private void lpkCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lpkClassific_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             object pagina = (sender as ListPicker).SelectedItem as Classificacao;
         }
@@ -166,26 +166,9 @@ namespace ClientBook
 
 
 
-        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        private void btnAcess_Classific_Click(object sender, RoutedEventArgs e)
         {
-
-                if (classificacao != null)
-                {
-                    if (MessageBox.Show("Excluir Favorito ?") == MessageBoxResult.OK)
-                    {
-                        ClassificRepositorio.Delete(classificacao.id);                        
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Selecione para excluir");
-                    return;
-                }
-                
-            
-            
-
+            Navigate("/ListaClassificacao.xaml");
         }
 
         private void btnAdd_Estabelec_Click(object sender, RoutedEventArgs e)
@@ -193,23 +176,23 @@ namespace ClientBook
             Navigate("/CadastroEstabelec.xaml");
         }
 
-        private void btnExcluir_Estabelec_Click(object sender, RoutedEventArgs e)
+        private void btnAcess_Estabelec_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("Excluir Estabelecimento " + lpkEstabelecimento.SelectedItem + "?") == MessageBoxResult.OK)
-                {
-
-                    string nome = lpkCountry.SelectedItem.ToString();
-                    EstabelecRepositorio.Delete(nome);
-                    Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Selecione uma Estabelecimento para excluir");
-                return;
-            }
+            Navigate("/ListaEstabelecimento.xaml");
+            //try
+            //{
+            //    if (MessageBox.Show("Excluir Estabelecimento " + lpkEstabelecimento.SelectedItem + "?") == MessageBoxResult.OK)
+            //    {
+            //        string nome = lpkEstabelecimento.SelectedItem.ToString();
+            //        EstabelecRepositorio.Delete(nome);
+            //        Refresh();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Selecione uma Estabelecimento para excluir");
+            //    return;
+            //}
 
         }
 
@@ -218,24 +201,9 @@ namespace ClientBook
             Navigate("/CadastroProd.xaml");
         }
 
-        private void btnExcluir_Prod_Click(object sender, RoutedEventArgs e)
+        private void btnAcess_Prod_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("Excluir Produto " + lpkProduto.SelectedItem + "?") == MessageBoxResult.OK)
-                {
-
-                    string nome = lpkProduto.SelectedItem.ToString();
-                    ProdutoRepositorio.Delete(nome);
-                    Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Selecione um Produto para excluir");
-                return;
-            }
-
+            Navigate("/ListaProduto.xaml");
         }
 
 

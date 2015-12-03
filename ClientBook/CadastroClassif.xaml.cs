@@ -14,10 +14,29 @@ namespace ClientBook
 {
     public partial class CadastroClassif : PhoneApplicationPage
     {
+        public Classificacao classific { get; set; }
         public CadastroClassif()
         {
             InitializeComponent();
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (classific != null)
+            {
+                TxtTitulo.Text = "Editar local";          
+                TxtId.Text = classific.id.ToString();
+                TxtClassif.Text = classific.nome;
+
+                TxtId.IsEnabled = false;
+
+            }
+
+        }
+
+
 
         private void btnClassif_Click(object sender, RoutedEventArgs e)
         {
@@ -28,26 +47,70 @@ namespace ClientBook
             }
 
 
-
-            Classificacao classificacao = new Classificacao
+            if (classific != null)
             {
-                nome = TxtClassif.Text
-            };
+                classific.id = int.Parse(TxtId.Text);
+                classific.nome = TxtClassif.Text;
 
-            ClassificRepositorio.Create(classificacao);
 
-            if (classificacao.referencia != 1)
+                ClassificRepositorio.Update(classific);
+                MessageBox.Show("Dados Alterados com sucesso.");
+            }
+
+            if (classific == null)
             {
+                Classificacao classificacao = new Classificacao
+                {
+                    id = int.Parse(TxtId.Text),
+                    nome = TxtClassif.Text
+                };
+                // Uri caminho = new Uri("/ProvaRepositorio.cs?parametro=" + TxtId.Text, UriKind.RelativeOrAbsolute); 
+                ClassificRepositorio.Create(classificacao);
+
+
+                if (classificacao.referencia != 1)
+                {
+                    MessageBox.Show("Cadastrado com Sucesso.");
+                }
+                else
+                {
+                    MessageBox.Show("Esta informação já consta no banco de dados");
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Classificacao classificacao = new Classificacao
+            //{
+            //    nome = TxtClassif.Text
+            //};
+
+            //ClassificRepositorio.Create(classificacao);
+
+            //if (classificacao.referencia != 1)
+            //{
                                
-                MessageBox.Show("Cadastrada com Sucesso.");
-                NavigationService.GoBack();
-               // Navigate("/Compra.xaml"); 
+            //    MessageBox.Show("Cadastrada com Sucesso.");
+            //    NavigationService.GoBack();
+            //   // Navigate("/Compra.xaml"); 
 
-            }
-            else
-            {
-                MessageBox.Show("Esta informação já consta no banco de dados");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Esta informação já consta no banco de dados");
+            //}
 
             //ClassificRepositorio.Create(classificacao);
             //MessageBox.Show("Cadastrada com Sucesso.");

@@ -24,12 +24,12 @@ namespace ClientBook
 
         private void Venda_Click(object sender, RoutedEventArgs e)
         {
-            Navigate("");
+            Navigate("/ListaVenda.xaml");
         }
 
         private void Servico_Click(object sender, RoutedEventArgs e)
         {
-            Navigate("");
+            Navigate("/ListaServico.xaml");
         }
 
         private void Compra_Click(object sender, RoutedEventArgs e)

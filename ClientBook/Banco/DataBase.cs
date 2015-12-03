@@ -23,6 +23,16 @@ namespace ClientBook.Banco
             get { return this.GetTable<CompraEntidade>();}
         }
 
+        public Table<VendaEntidade> Venda
+        {
+            get { return this.GetTable<VendaEntidade>(); }
+        }
+
+        public Table<ServicoEntidade> Servico
+        {
+            get { return this.GetTable<ServicoEntidade>(); }
+        }
+
         public Table<Classificacao> Classificacao
         {
             get { return this.GetTable<Classificacao>(); }
@@ -36,6 +46,16 @@ namespace ClientBook.Banco
         public Table<Produto> Produto
         {
             get { return this.GetTable<Produto>(); }
+        }
+
+        public Table<ServicoPrest> ServicoPrest
+        {
+            get { return this.GetTable<ServicoPrest>(); }
+        }
+
+        public Table<ClienteEntidade> Cliente
+        {
+            get { return this.GetTable<ClienteEntidade>(); }
         }
     }
 }

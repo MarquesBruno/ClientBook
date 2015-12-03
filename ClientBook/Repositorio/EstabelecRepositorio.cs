@@ -96,6 +96,34 @@ namespace ClientBook.Repositorio
             db.SubmitChanges();
         }
 
+        public static void DeleteObject(Estabelecimento pEstabelec)
+        {
+            DataBase db = GetDataBase();
+            var query = from c in db.Estabelecimento
+                        where c.id == pEstabelec.id
+                        select c;
+
+            db.Estabelecimento.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
+
+
+        public static void Update(Estabelecimento pEstabelec)
+        {
+            DataBase db = GetDataBase();
+
+            Estabelecimento est = (from c in db.Estabelecimento
+                                   where c.id == pEstabelec.id
+                                   select c).First();
+
+            est.nome = pEstabelec.nome;
+            est.endereco = pEstabelec.endereco;
+            est.telefone = pEstabelec.telefone;
+
+            db.SubmitChanges();
+        }
+
 
 
 
