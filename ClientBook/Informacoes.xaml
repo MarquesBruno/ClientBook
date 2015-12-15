@@ -1,0 +1,315 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ClientBook.Informacoes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Sobre">
+
+                <Grid>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="5,30,5,0" Width="420">
+
+                        <TextBlock Text="" Name="TxtSobre" FontFamily="Aharoni" TextAlignment="Center"                        
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       TextWrapping="Wrap" VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="30" Margin="18, 8"/>
+                    </StackPanel>
+
+                </Grid>
+
+
+
+
+
+
+
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="Ajuda">
+                <Grid>
+
+
+                    <StackPanel Grid.Row="1" Margin="0">
+                        <ScrollViewer Height="559">
+
+                            <StackPanel Margin="10">
+                                <Grid x:Name="ContentPanel">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="89*" />
+                                        <ColumnDefinition Width="347*" />
+                                    </Grid.ColumnDefinitions>
+
+
+
+                                    <StackPanel Grid.Row="0">
+
+
+                                        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Text="" x:Name="TxtInfo1" FontFamily="Aharoni"                        
+            				Style="{StaticResource PhoneTextNormalStyle}"
+            				TextWrapping="Wrap" VerticalAlignment="Center"
+            				FontSize="30" Margin="22,8,-286,8" Height="246" RenderTransformOrigin="0.5,0.5"/>
+
+                                    </StackPanel>
+
+
+
+
+
+                                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Text="" x:Name="TxtInfo" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="22,18,5,0" Height="96" RenderTransformOrigin="0.5,0.5"/>
+
+
+
+
+
+                                    <Image Grid.Row="1" Grid.Column="0" x:Name="imgAdd" Source="/Icons/add.png" Margin="0,104,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="2" x:Name="TxtAdd" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,47,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+                                    <Image Grid.Row="2" Grid.Column="0" x:Name="imgEdit" Source="/Icons/edit.png" Margin="0,104,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="3" x:Name="TxtEdit" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,48,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+                                    <Image Grid.Row="3" Grid.Column="0" x:Name="imgDelete" Source="/Icons/delete.png" Margin="0,104,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="4" x:Name="TxtDelete" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,48,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+                                    <Image Grid.Row="4" Grid.Column="0" x:Name="imgCheck" Source="/Icons/eyeCopia.png" Margin="0,105,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="5" x:Name="TxtCheck" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,43,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+                                    <!--<Image Grid.Row="5" Grid.Column="0" x:Name="imgFavorito" Source="/Icons/favs.addto.png" Margin="0,105,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="6" x:Name="TxtFavorito" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,47,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+                                    <Image Grid.Row="6" Grid.Column="0" x:Name="imgAddFav" Source="/Icons/favs.png" Margin="0,107,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="7" x:Name="TxtAcesFav" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,40,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>-->
+
+
+
+                                    <Image Grid.Row="5" Grid.Column="0" x:Name="imgAvlia" Source="/Icons/like.png" Margin="0,105,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="6" x:Name="TxtAvalia" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,49,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+                                    <Image Grid.Row="6" Grid.Column="0" x:Name="imgEquip" Source="/Icons/equip.png" Margin="0,107,10,0" Grid.RowSpan="2"/>
+                                    <TextBlock Grid.Row="7" x:Name="TxtEquip" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="0,40,0,0" Height="72" RenderTransformOrigin="0.491,0.521" HorizontalAlignment="Right" Width="362" Grid.ColumnSpan="2"/>
+
+
+                                </Grid>
+
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="Equipe">
+
+
+                <Grid x:Name="LayoutEquip">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <!--TitlePanel contains the name of the application and page title-->
+
+
+
+                    <!--ContentPanel - place additional content here-->
+                    <StackPanel Grid.Row="1" Margin="-10,60,10,-60">
+
+
+                        <StackPanel Margin="10">
+                            <Grid x:Name="ContentPanelEquip">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+
+                                </Grid.ColumnDefinitions>
+
+
+
+                                <StackPanel Grid.Row="0">
+
+
+                                    <TextBlock Grid.Row="0" FontStyle="Italic" TextAlignment="Center" Text="" x:Name="TxtDes" FontFamily="Aharoni"                        
+            				Style="{StaticResource PhoneTextNormalStyle}"
+            				TextWrapping="Wrap" VerticalAlignment="Center"
+            				FontSize="30" Margin="10,8" Height="auto" RenderTransformOrigin="0.5,0.5"/>
+
+                                </StackPanel>
+
+
+
+
+
+                                <TextBlock Grid.Row="1"  TextAlignment="Center" Text="" x:Name="TxtBruno" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="10,8" Height="100" RenderTransformOrigin="0.5,0.5"/>
+
+
+
+
+
+                                <TextBlock Grid.Row="2" FontStyle="Italic" TextAlignment="Center" x:Name="TxtApoio" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="10,8" Height="auto" RenderTransformOrigin="0.5,0.5"/>
+
+                                <TextBlock Grid.Row="3" TextAlignment="Center" x:Name="TxtApoio1" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="10,8" Height="auto" RenderTransformOrigin="0.5,0.5"/>
+
+                                <!--<TextBlock Grid.Row="4" TextAlignment="Center" x:Name="TxtApoio2" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="10,8" Height="auto" RenderTransformOrigin="0.5,0.5"/>
+
+
+                                <TextBlock Grid.Row="5" TextAlignment="Center" x:Name="TxtApoio3" FontFamily="Aharoni"                        
+            			Style="{StaticResource PhoneTextNormalStyle}"
+            			TextWrapping="Wrap" VerticalAlignment="Center"
+            			FontSize="30" Margin="10,8" Height="auto" RenderTransformOrigin="0.5,0.5"/>-->
+
+
+
+
+
+
+
+
+
+
+
+
+                            </Grid>
+
+
+
+
+
+
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+
+
+
+                </Grid>
+
+
+
+
+
+            </phone:PivotItem>
+
+
+        </phone:Pivot>
+    </Grid>
+
+
+    <phone:PhoneApplicationPage.ApplicationBar >
+        <shell:ApplicationBar IsMenuEnabled="True">
+
+            <shell:ApplicationBarIconButton IconUri="/Icons/like.png" 
+                                            Text="Avaliar"
+                                            Click="appBarLike_Click"/>
+
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
